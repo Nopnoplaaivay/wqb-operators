@@ -1,9 +1,9 @@
 import numpy as np
 import pandas as pd
 
-class TimeSeriesOps:
+class TimeSeriesOperators:
     @classmethod
-    def ts_sum(cls, x, days=5):
+    def ts_sum(cls, x: pd.DataFrame, days: int):
         stocks = x.columns[1:]
 
         summed_df = x.copy()
