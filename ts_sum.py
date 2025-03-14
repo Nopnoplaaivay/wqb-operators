@@ -3,6 +3,7 @@ import pandas as pd
 
 
 def ts_sum(x, days=5):
+    x = x.reset_index(drop=True) 
     matrix = x.drop(columns=["time"]).values  # Remove 'time' column
     summed_df = np.zeros(matrix.shape)
     stocks = x.columns[1:]
@@ -13,6 +14,7 @@ def ts_sum(x, days=5):
 
     summed_df = pd.DataFrame(summed_df, columns=stocks)
     summed_df.insert(0, "time", x["time"])
+    summed_df = summed_df.dropna()
     return summed_df
 
 
