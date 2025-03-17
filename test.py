@@ -29,7 +29,7 @@ def test_tradewhen():
     df = pd.read_csv('test_tradewhen.csv')
     df = TF.test_trade_when(df)
 
-    # reorder columns
+    # thay đổi lại thứ tự các cột
     cols = df.columns.tolist()
     columns = ['time', 'close', 'tradewhen', 'x1', 'y1', 'z1']
     df = df[columns]
