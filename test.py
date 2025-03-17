@@ -36,5 +36,7 @@ def test_tradewhen():
 
     print(df)
 
-test_alpha()
-test_tradewhen()
+
+if __name__ == "__main__":
+    test_alpha()
+    test_tradewhen()
