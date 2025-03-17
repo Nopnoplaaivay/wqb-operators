@@ -10,7 +10,7 @@ from src.modules.operators import (
     LogicalOperators as LG
 )
 
-def test_alpha():
+def test_tradewhen_5s():
     close = pd.read_csv('close_price.csv')
 
     trigger_trade_x = close.copy() # close price
@@ -23,10 +23,10 @@ def test_alpha():
     trigger_exit_exp_matrix = LG.less_equal(x=close, y=trigger_exit_y)
 
     trade_df = TF.trade_when(x=trigger_trade_exp_matrix, y=alpha_exp_matrix, z=trigger_exit_exp_matrix)
-    print(trade_df)
+    trade_df.to_excel('test_tradewhen_5S.xlsx', index=False)
 
 def test_tradewhen():
-    df = pd.read_csv('test_tradewhen.csv')
+    df = pd.read_csv('tradewhen_input.csv')
     df = TF.test_trade_when(df)
 
     # thay đổi lại thứ tự các cột
@@ -34,9 +34,9 @@ def test_tradewhen():
     columns = ['time', 'close', 'tradewhen', 'x1', 'y1', 'z1']
     df = df[columns]
 
-    print(df)
+    df.to_excel('test_tradewhen_1S.xlsx', index=False)
 
 
 if __name__ == "__main__":
-    test_alpha()
+    test_tradewhen_5s()
     test_tradewhen()
