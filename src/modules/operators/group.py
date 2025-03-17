@@ -3,7 +3,7 @@ import pandas as pd
 
 class GroupOperators:
     @classmethod
-    def trade_when(cls, x: pd.DataFrame, y, z):
+    def group(cls, x: pd.DataFrame, y, z):
 
 
         return x
